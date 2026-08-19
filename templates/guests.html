@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Stay | Guests</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='guests.css') }}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <span>RS</span>
+
+            <div>
+                <strong>ROYAL STAY</strong>
+                <small>MANAGEMENT</small>
+            </div>
+        </div>
+
+        <nav>
+
+            <a href="{{ url_for('dashboard') }}">⌂ Dashboard</a>
+            <a href="{{ url_for('rooms') }}">▣ Rooms</a>
+            <a href="{{ url_for('booking') }}">◇ Bookings</a>
+
+            <a href="{{ url_for('guests') }}" class="active">
+                ♙ Guests
+            </a>
+
+            <a href="{{ url_for('payments') }}">◈ Payments</a>
+            <a href="{{ url_for('staff') }}">♧ Staff</a>
+
+        </nav>
+
+        <div class="bottom">
+            <a href="{{ url_for('reports') }}">◫ Reports</a>
+            <a href="{{ url_for('settings') }}">⚙ Settings</a>
+            <a href="{{ url_for('logout') }}">↪ Logout</a>
+        </div>
+
+    </aside>
+
+
+    <main>
+
+        <header class="header">
+
+            <div>
+                <span>GUEST RELATIONS</span>
+                <h1>Guests</h1>
+                <p>Guest records stored in your hotel database.</p>
+            </div>
+
+            <div class="count">
+                {{ guests|length }} RECORDS
+            </div>
+
+        </header>
+
+
+        <section class="panel">
+
+            <div class="panel-head">
+
+                <div>
+                    <span>GUEST DIRECTORY</span>
+                    <h2>Registered guests</h2>
+                </div>
+
+            </div>
+
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>GUEST</th>
+                            <th>EMAIL</th>
+                            <th>PHONE</th>
+                            <th>ADDRESS</th>
+                            <th>ID PROOF</th>
+                            <th>CREATED</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                    {% for guest in guests %}
+
+                        <tr>
+
+                            <td class="id">
+                                #{{ guest.guest_id }}
+                            </td>
+
+                            <td class="name">
+                                {{ guest.first_name }}
+                                {{ guest.last_name }}
+                            </td>
+
+                            <td>
+                                {{ guest.email if guest.email else '—' }}
+                            </td>
+
+                            <td>
+                                {{ guest.phone if guest.phone else '—' }}
+                            </td>
+
+                            <td>
+                                {{ guest.address if guest.address else '—' }}
+                            </td>
+
+                            <td>
+                                {{ guest.id_proof if guest.id_proof else '—' }}
+                            </td>
+
+                            <td>
+                                {{ guest.created_at }}
+                            </td>
+
+                        </tr>
+
+                    {% else %}
+
+                        <tr>
+                            <td colspan="7" class="empty">
+                                No guest records found in the database.
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Stay | Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard-shell">
+
+    <aside class="sidebar">
+
+        <div class="side-brand">
+            <span class="brand-mark">RS</span>
+
+            <div>
+                <strong>ROYAL STAY</strong>
+                <small>MANAGEMENT</small>
+            </div>
+        </div>
+
+
+        <div class="menu-label">MAIN MENU</div>
+
+        <nav>
+
+            <a href="{{ url_for('dashboard') }}" class="active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('rooms') }}">
+                <span>▣</span>
+                Rooms
+            </a>
+
+            <a href="{{ url_for('booking') }}">
+                <span>◇</span>
+                Bookings
+            </a>
+
+            <a href="{{ url_for('guests') }}">
+                <span>♙</span>
+                Guests
+            </a>
+
+            <a href="{{ url_for('payments') }}">
+                <span>◈</span>
+                Payments
+            </a>
+
+            <a href="{{ url_for('staff') }}">
+                <span>♧</span>
+                Staff
+            </a>
+
+        </nav>
+
+
+        <div class="side-bottom">
+
+            <a href="{{ url_for('reports') }}">
+                <span>◫</span>
+                Reports
+            </a>
+
+            <a href="{{ url_for('settings') }}">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="{{ url_for('logout') }}" class="logout">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <span class="page-kicker">OVERVIEW</span>
+                <h1>Good to see you.</h1>
+            </div>
+
+            <div class="profile">
+                <div class="profile-icon">
+                    {{ session["username"][0]|upper }}
+                </div>
+
+                <div>
+                    <strong>{{ session["username"] }}</strong>
+                    <small>{{ session["role"]|upper }}</small>
+                </div>
+            </div>
+
+        </header>
+
+
+        <section class="welcome-card">
+
+            <div>
+                <span class="gold-label">ROYAL STAY / CONTROL CENTER</span>
+
+                <h2>
+                    Your hotel,
+                    <em>at a glance.</em>
+                </h2>
+
+                <p>
+                    Monitor your hotel's core operations from one place.
+                </p>
+            </div>
+
+            <div class="welcome-symbol">
+                RS
+            </div>
+
+        </section>
+
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+                    <span>ROOMS</span>
+                    <i>▣</i>
+                </div>
+
+                <strong>{{ stats.rooms }}</strong>
+
+                <small>Total rooms</small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+                    <span>GUESTS</span>
+                    <i>♙</i>
+                </div>
+
+                <strong>{{ stats.guests }}</strong>
+
+                <small>Registered guests</small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+                    <span>BOOKINGS</span>
+                    <i>◇</i>
+                </div>
+
+                <strong>{{ stats.bookings }}</strong>
+
+                <small>Total reservations</small>
+
+            </div>
+
+
+            <div class="stat-card revenue">
+
+                <div class="stat-top">
+                    <span>PAYMENTS</span>
+                    <i>◈</i>
+                </div>
+
+                <strong>₹{{ stats.payments }}</strong>
+
+                <small>Total recorded amount</small>
+
+            </div>
+
+        </section>
+
+
+        <section class="quick-section">
+
+            <div class="section-title">
+                <span class="page-kicker">QUICK ACCESS</span>
+                <h2>Management areas</h2>
+            </div>
+
+
+            <div class="quick-grid">
+
+                <a href="{{ url_for('rooms') }}" class="quick-card">
+                    <span>01</span>
+                    <h3>Rooms</h3>
+                    <p>View room inventory and status.</p>
+                    <b>→</b>
+                </a>
+
+                <a href="{{ url_for('booking') }}" class="quick-card">
+                    <span>02</span>
+                    <h3>Bookings</h3>
+                    <p>Review reservation records.</p>
+                    <b>→</b>
+                </a>
+
+                <a href="{{ url_for('guests') }}" class="quick-card">
+                    <span>03</span>
+                    <h3>Guests</h3>
+                    <p>Access guest information.</p>
+                    <b>→</b>
+                </a>
+
+                <a href="{{ url_for('reports') }}" class="quick-card">
+                    <span>04</span>
+                    <h3>Reports</h3>
+                    <p>Review hotel statistics.</p>
+                    <b>→</b>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

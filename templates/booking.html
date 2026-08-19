@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Stay | Bookings</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='booking.css') }}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <span>RS</span>
+
+            <div>
+                <strong>ROYAL STAY</strong>
+                <small>MANAGEMENT</small>
+            </div>
+        </div>
+
+        <nav>
+
+            <a href="{{ url_for('dashboard') }}">⌂ Dashboard</a>
+            <a href="{{ url_for('rooms') }}">▣ Rooms</a>
+
+            <a href="{{ url_for('booking') }}" class="active">
+                ◇ Bookings
+            </a>
+
+            <a href="{{ url_for('guests') }}">♙ Guests</a>
+            <a href="{{ url_for('payments') }}">◈ Payments</a>
+            <a href="{{ url_for('staff') }}">♧ Staff</a>
+
+        </nav>
+
+        <div class="bottom">
+            <a href="{{ url_for('reports') }}">◫ Reports</a>
+            <a href="{{ url_for('settings') }}">⚙ Settings</a>
+            <a href="{{ url_for('logout') }}">↪ Logout</a>
+        </div>
+
+    </aside>
+
+
+    <main>
+
+        <header class="header">
+
+            <div>
+                <span>RESERVATION CENTER</span>
+                <h1>Bookings</h1>
+                <p>Review reservation records from your database.</p>
+            </div>
+
+            <div class="record-badge">
+                {{ bookings|length }} RECORDS
+            </div>
+
+        </header>
+
+
+        <section class="panel">
+
+            <div class="panel-title">
+                <div>
+                    <span>RESERVATION DIRECTORY</span>
+                    <h2>Guest reservations</h2>
+                </div>
+            </div>
+
+
+            <div class="table-scroll">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>GUEST</th>
+                            <th>ROOM</th>
+                            <th>TYPE</th>
+                            <th>CHECK IN</th>
+                            <th>CHECK OUT</th>
+                            <th>GUESTS</th>
+                            <th>STATUS</th>
+                            <th>TOTAL</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                    {% for booking in bookings %}
+
+                        <tr>
+
+                            <td class="id">
+                                #{{ booking.booking_id }}
+                            </td>
+
+                            <td class="guest">
+                                {{ booking.first_name }}
+                                {{ booking.last_name }}
+                            </td>
+
+                            <td>
+                                {{ booking.room_number }}
+                            </td>
+
+                            <td>
+                                {{ booking.room_type }}
+                            </td>
+
+                            <td>
+                                {{ booking.check_in }}
+                            </td>
+
+                            <td>
+                                {{ booking.check_out }}
+                            </td>
+
+                            <td>
+                                {{ booking.number_of_guests }}
+                            </td>
+
+                            <td>
+                                <span class="status">
+                                    {{ booking.booking_status }}
+                                </span>
+                            </td>
+
+                            <td class="amount">
+                                ₹{{ booking.total_amount }}
+                            </td>
+
+                        </tr>
+
+                    {% else %}
+
+                        <tr>
+                            <td colspan="9" class="empty">
+                                No booking records found in the database.
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

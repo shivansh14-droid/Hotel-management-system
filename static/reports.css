@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #080b14;
+    --side: #0a0e18;
+    --border: rgba(255,255,255,.075);
+    --gold: #d8b36a;
+    --gold-light: #f0d49b;
+    --text: #f4f2ec;
+    --muted: #858c9e;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 80% 15%, rgba(105,75,210,.13), transparent 30%),
+        radial-gradient(circle at 20% 85%, rgba(216,179,106,.06), transparent 25%),
+        var(--bg);
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 235px;
+    padding: 28px 16px;
+    background: var(--side);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 10px 38px;
+}
+
+.brand > span,
+.report-mark {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(216,179,106,.4);
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-light);
+    font-size: 11px;
+}
+
+.brand strong,
+.brand small {
+    display: block;
+}
+
+.brand strong {
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.brand small {
+    color: var(--muted);
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+nav a,
+.bottom a {
+    display: block;
+    padding: 12px;
+    border-radius: 9px;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+nav a:hover,
+.bottom a:hover {
+    color: var(--text);
+    background: rgba(255,255,255,.035);
+}
+
+.bottom {
+    margin-top: auto;
+}
+
+.bottom .active {
+    color: var(--gold-light);
+    background: rgba(216,179,106,.1);
+    border-left: 2px solid var(--gold);
+}
+
+main {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 45px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 35px;
+}
+
+.header > div:first-child > span {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 2.5px;
+}
+
+.header h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 43px;
+    margin: 8px 0;
+}
+
+.header p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.report-mark {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+}
+
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.report-card {
+    padding: 28px;
+    min-height: 185px;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.012)
+        );
+
+    transition: .3s;
+}
+
+.report-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(216,179,106,.22);
+}
+
+.report-card > span {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.report-card strong {
+    display: block;
+    font-family: "Playfair Display", serif;
+    color: var(--gold-light);
+    font-size: 43px;
+    margin: 32px 0 7px;
+}
+
+.report-card small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.available {
+    border-top: 2px solid #6bd18e;
+}
+
+.occupied {
+    border-top: 2px solid #dc7777;
+}
+
+.revenue {
+    background:
+        radial-gradient(circle at 90% 20%, rgba(216,179,106,.13), transparent 35%),
+        linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.012));
+}
+
+.summary {
+    margin-top: 45px;
+    padding: 38px;
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    background:
+        radial-gradient(circle at 80% 50%, rgba(105,75,210,.1), transparent 35%),
+        rgba(255,255,255,.025);
+}
+
+.summary > span {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 2.5px;
+}
+
+.summary h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 34px;
+    margin: 12px 0 8px;
+}
+
+.summary h2 em {
+    color: var(--gold-light);
+}
+
+.summary p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+@media(max-width:900px) {
+
+    .report-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:800px) {
+
+    .sidebar {
+        width: 70px;
+        padding: 20px 8px;
+    }
+
+    .brand div,
+    nav a,
+    .bottom a {
+        font-size: 0;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+}
+
+@media(max-width:550px) {
+
+    .report-grid {
+        grid-template-columns: 1fr;
+    }
+}

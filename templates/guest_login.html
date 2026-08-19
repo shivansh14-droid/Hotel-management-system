@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Stay | Guest Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='guest_login.css') }}">
+
+</head>
+
+<body>
+
+    <div class="guest-bg"></div>
+
+    <main class="guest-page">
+
+        <!-- LEFT SECTION -->
+
+        <section class="guest-brand">
+
+            <a href="{{ url_for('index') }}" class="brand">
+
+                <span class="brand-mark">
+                    RS
+                </span>
+
+                <span>
+                    <strong>ROYAL STAY</strong>
+                    <small>HOTEL EXPERIENCE</small>
+                </span>
+
+            </a>
+
+
+            <div class="welcome">
+
+                <span class="kicker">
+                    GUEST PORTAL
+                </span>
+
+                <h1>
+                    Welcome
+                    <br>
+                    <em>back.</em>
+                </h1>
+
+                <p>
+                    Sign in to manage your reservation,
+                    view your stay details and access
+                    your Royal Stay guest portal.
+                </p>
+
+            </div>
+
+
+            <div class="guest-footer">
+
+                <span>
+                    ROYAL STAY GUEST PORTAL
+                </span>
+
+                <span>
+                    RS / GUEST
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT LOGIN SECTION -->
+
+        <section class="guest-panel">
+
+            <div class="guest-box">
+
+                <div class="box-heading">
+
+                    <span class="small-label">
+                        GUEST ACCESS
+                    </span>
+
+                    <h2>
+                        Guest Login
+                    </h2>
+
+                    <p>
+                        Enter your credentials to continue.
+                    </p>
+
+                </div>
+
+
+                <!-- ERROR MESSAGE -->
+
+                {% if error %}
+
+                <div class="error-message">
+                    {{ error }}
+                </div>
+
+                {% endif %}
+
+
+                <!-- IMPORTANT:
+                     This submits to the existing Flask /login route.
+                     Your app.py already handles the guest account there.
+                -->
+
+                <form method="POST"
+                      action="{{ url_for('login') }}">
+
+                    <div class="input-group">
+
+                        <label for="username">
+                            Username
+                        </label>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter username"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="login-submit">
+
+                        Sign In
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+                </form>
+
+
+                <!-- DEMO CREDENTIALS -->
+
+                <div class="demo-login">
+
+                    <div class="demo-heading">
+
+                        <span>
+                            PROJECT DEMONSTRATION
+                        </span>
+
+                    </div>
+
+
+                    <div class="demo-account">
+
+                        <div class="account-role">
+                            GUEST
+                        </div>
+
+
+                        <div class="account-details">
+
+                            <p>
+                                <strong>Username:</strong>
+                                guest
+                            </p>
+
+                            <p>
+                                <strong>Password:</strong>
+                                guest123
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADMIN LOGIN -->
+
+                <a href="{{ url_for('login') }}"
+                   class="admin-link">
+
+                    Administrator Login →
+
+                </a>
+
+
+                <!-- HOME -->
+
+                <a href="{{ url_for('index') }}"
+                   class="back-home">
+
+                    ← Return to Royal Stay
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

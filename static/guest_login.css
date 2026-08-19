@@ -1,0 +1,838 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root {
+
+    --navy: #07131f;
+    --navy-light: #0d2130;
+
+    --gold: #d7b56d;
+    --gold-light: #f0d99d;
+
+    --cream: #f4eee3;
+    --text: #e8e2d8;
+    --muted: #98a5af;
+
+    --border: rgba(255,255,255,0.10);
+
+    --danger: #d97878;
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+    min-height: 100%;
+
+}
+
+
+body {
+
+    font-family: "DM Sans", sans-serif;
+
+    background: var(--navy);
+
+    color: var(--text);
+
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.guest-bg {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(215,181,109,0.14),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(55,105,125,0.16),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #07131f,
+            #0b1d2c,
+            #07131f
+        );
+
+}
+
+
+.guest-bg::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(215,181,109,0.07);
+
+    right: -180px;
+    top: -200px;
+
+}
+
+
+.guest-bg::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(215,181,109,0.06);
+
+    left: -170px;
+    bottom: -170px;
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.guest-page {
+
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns:
+        1.05fr 0.95fr;
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+/* =====================================================
+   LEFT
+===================================================== */
+
+.guest-brand {
+
+    min-height: 100vh;
+
+    padding: 55px 8%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    border-right: 1px solid var(--border);
+
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    width: fit-content;
+
+    color: var(--cream);
+
+}
+
+
+.brand-mark {
+
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+
+    place-items: center;
+
+    border: 1px solid var(--gold);
+
+    color: var(--gold);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 17px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.brand strong {
+
+    display: block;
+
+    font-size: 15px;
+
+    letter-spacing: 4px;
+
+    font-weight: 600;
+
+}
+
+
+.brand small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+
+}
+
+
+/* =====================================================
+   WELCOME
+===================================================== */
+
+.welcome {
+
+    max-width: 570px;
+
+}
+
+
+.kicker {
+
+    display: inline-block;
+
+    margin-bottom: 22px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+}
+
+
+.welcome h1 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(55px, 6vw, 82px);
+
+    line-height: 0.98;
+
+    font-weight: 600;
+
+    color: var(--cream);
+
+}
+
+
+.welcome h1 em {
+
+    color: var(--gold);
+
+    font-style: italic;
+
+}
+
+
+.welcome p {
+
+    max-width: 470px;
+
+    margin-top: 30px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.guest-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #667581;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =====================================================
+   RIGHT PANEL
+===================================================== */
+
+.guest-panel {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 60px;
+
+}
+
+
+/* =====================================================
+   LOGIN BOX
+===================================================== */
+
+.guest-box {
+
+    width: 100%;
+
+    max-width: 470px;
+
+    padding: 48px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.065),
+            rgba(255,255,255,0.025)
+        );
+
+    border: 1px solid
+        rgba(255,255,255,0.11);
+
+    box-shadow:
+
+        0 35px 90px
+        rgba(0,0,0,0.30);
+
+    backdrop-filter: blur(18px);
+
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.box-heading {
+
+    margin-bottom: 32px;
+
+}
+
+
+.small-label {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+}
+
+
+.box-heading h2 {
+
+    margin-top: 12px;
+
+    font-family: "Playfair Display", serif;
+
+    color: var(--cream);
+
+    font-size: 38px;
+
+}
+
+
+.box-heading p {
+
+    margin-top: 8px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error-message {
+
+    padding: 13px 15px;
+
+    margin-bottom: 22px;
+
+    border-left: 3px solid var(--danger);
+
+    background: rgba(217,120,120,0.08);
+
+    color: #e8a1a1;
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.input-group {
+
+    margin-bottom: 22px;
+
+}
+
+
+.input-group label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #c7cdd1;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+}
+
+
+.input-group input {
+
+    width: 100%;
+
+    height: 52px;
+
+    padding: 0 16px;
+
+    outline: none;
+
+    border: 1px solid
+        rgba(255,255,255,0.12);
+
+    background:
+        rgba(0,0,0,0.16);
+
+    color: var(--cream);
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 13px;
+
+    transition: 0.25s;
+
+}
+
+
+.input-group input:focus {
+
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(215,181,109,0.06);
+
+}
+
+
+.input-group input::placeholder {
+
+    color: #65737e;
+
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.login-submit {
+
+    width: 100%;
+
+    height: 54px;
+
+    margin-top: 7px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    border: none;
+
+    background: var(--gold);
+
+    color: #101920;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.login-submit span {
+
+    font-size: 20px;
+
+}
+
+
+.login-submit:hover {
+
+    background: var(--gold-light);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(215,181,109,0.18);
+
+}
+
+
+/* =====================================================
+   DEMO LOGIN
+===================================================== */
+
+.demo-login {
+
+    margin-top: 30px;
+
+    padding: 18px;
+
+    border: 1px solid
+        rgba(215,181,109,0.22);
+
+    background:
+        rgba(215,181,109,0.035);
+
+}
+
+
+.demo-heading {
+
+    padding-bottom: 10px;
+
+    margin-bottom: 10px;
+
+    border-bottom: 1px solid
+        rgba(255,255,255,0.07);
+
+}
+
+
+.demo-heading span {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.demo-account {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+}
+
+
+.account-role {
+
+    min-width: 58px;
+
+    padding: 6px;
+
+    text-align: center;
+
+    background: var(--gold);
+
+    color: #07131f;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+.account-details p {
+
+    margin: 4px 0;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+}
+
+
+.account-details strong {
+
+    color: var(--text);
+
+}
+
+
+/* =====================================================
+   ADMIN LINK
+===================================================== */
+
+.admin-link {
+
+    display: block;
+
+    width: fit-content;
+
+    margin: 25px auto 0;
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    transition: 0.25s;
+
+}
+
+
+.admin-link:hover {
+
+    color: var(--gold-light);
+
+}
+
+
+/* =====================================================
+   HOME LINK
+===================================================== */
+
+.back-home {
+
+    display: block;
+
+    width: fit-content;
+
+    margin: 15px auto 0;
+
+    color: #788691;
+
+    font-size: 11px;
+
+    transition: 0.25s;
+
+}
+
+
+.back-home:hover {
+
+    color: var(--gold);
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .guest-page {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .guest-brand {
+
+        min-height: auto;
+
+        padding: 35px 7%;
+
+        border-right: none;
+
+        border-bottom: 1px solid var(--border);
+
+    }
+
+
+    .welcome {
+
+        margin-top: 70px;
+
+        margin-bottom: 70px;
+
+    }
+
+
+    .guest-footer {
+
+        display: none;
+
+    }
+
+
+    .guest-panel {
+
+        min-height: auto;
+
+        padding: 70px 7%;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 550px) {
+
+    .guest-brand {
+
+        padding: 25px 6%;
+
+    }
+
+
+    .welcome {
+
+        margin-top: 55px;
+
+        margin-bottom: 45px;
+
+    }
+
+
+    .welcome h1 {
+
+        font-size: 48px;
+
+    }
+
+
+    .guest-panel {
+
+        padding: 40px 6%;
+
+    }
+
+
+    .guest-box {
+
+        padding: 30px 22px;
+
+    }
+
+
+    .box-heading h2 {
+
+        font-size: 32px;
+
+    }
+
+}

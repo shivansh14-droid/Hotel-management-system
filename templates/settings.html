@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Stay | Settings</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='settings.css') }}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <span>RS</span>
+
+            <div>
+                <strong>ROYAL STAY</strong>
+                <small>MANAGEMENT</small>
+            </div>
+        </div>
+
+        <nav>
+
+            <a href="{{ url_for('dashboard') }}">⌂ Dashboard</a>
+            <a href="{{ url_for('rooms') }}">▣ Rooms</a>
+            <a href="{{ url_for('booking') }}">◇ Bookings</a>
+            <a href="{{ url_for('guests') }}">♙ Guests</a>
+            <a href="{{ url_for('payments') }}">◈ Payments</a>
+            <a href="{{ url_for('staff') }}">♧ Staff</a>
+
+        </nav>
+
+        <div class="bottom">
+
+            <a href="{{ url_for('reports') }}">◫ Reports</a>
+
+            <a href="{{ url_for('settings') }}" class="active">
+                ⚙ Settings
+            </a>
+
+            <a href="{{ url_for('logout') }}">
+                ↪ Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <main>
+
+        <header class="header">
+
+            <div>
+                <span>SYSTEM CONFIGURATION</span>
+                <h1>Settings</h1>
+                <p>Review your current administration session.</p>
+            </div>
+
+        </header>
+
+
+        <section class="settings-grid">
+
+            <div class="settings-card">
+
+                <div class="icon">01</div>
+
+                <span>ACCOUNT</span>
+
+                <h2>Administrator</h2>
+
+                <div class="setting-row">
+                    <small>USERNAME</small>
+                    <strong>{{ session["username"] }}</strong>
+                </div>
+
+                <div class="setting-row">
+                    <small>ROLE</small>
+                    <strong>{{ session["role"] }}</strong>
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+                <div class="icon">02</div>
+
+                <span>PLATFORM</span>
+
+                <h2>Royal Stay</h2>
+
+                <div class="setting-row">
+                    <small>SYSTEM</small>
+                    <strong>Hotel Management</strong>
+                </div>
+
+                <div class="setting-row">
+                    <small>DATABASE</small>
+                    <strong>Connected</strong>
+                </div>
+
+            </div>
+
+
+            <div class="settings-card security">
+
+                <div class="icon">03</div>
+
+                <span>SECURITY</span>
+
+                <h2>Session</h2>
+
+                <div class="setting-row">
+                    <small>ACCESS</small>
+                    <strong>Administrator</strong>
+                </div>
+
+                <a href="{{ url_for('logout') }}" class="logout-btn">
+                    Sign out securely →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <div class="footer-note">
+            ROYAL STAY / ADMINISTRATION PORTAL
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

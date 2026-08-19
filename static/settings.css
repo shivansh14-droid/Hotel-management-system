@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #080b14;
+    --side: #0a0e18;
+    --card: rgba(18,23,36,.75);
+    --border: rgba(255,255,255,.075);
+    --gold: #d8b36a;
+    --gold-light: #f0d49b;
+    --text: #f4f2ec;
+    --muted: #858c9e;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 80% 10%, rgba(105,75,210,.13), transparent 30%),
+        var(--bg);
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.layout {
+    min-height: 100vh;
+    display: flex;
+}
+
+.sidebar {
+    width: 235px;
+    padding: 28px 16px;
+    background: var(--side);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 10px 38px;
+}
+
+.brand > span {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(216,179,106,.4);
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gold-light);
+    font-size: 11px;
+}
+
+.brand strong,
+.brand small {
+    display: block;
+}
+
+.brand strong {
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.brand small {
+    color: var(--muted);
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+nav a,
+.bottom a {
+    display: block;
+    padding: 12px;
+    border-radius: 9px;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+nav a:hover,
+.bottom a:hover {
+    color: var(--text);
+    background: rgba(255,255,255,.035);
+}
+
+.bottom {
+    margin-top: auto;
+}
+
+.bottom .active {
+    color: var(--gold-light);
+    background: rgba(216,179,106,.1);
+    border-left: 2px solid var(--gold);
+}
+
+main {
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    padding: 45px;
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+.header > div > span {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 2.5px;
+}
+
+.header h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 43px;
+    margin: 8px 0;
+}
+
+.header p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.settings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.settings-card {
+    padding: 28px;
+    min-height: 330px;
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.012)
+        );
+
+    transition: .3s;
+}
+
+.settings-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(216,179,106,.22);
+}
+
+.icon {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-bottom: 55px;
+}
+
+.settings-card > span {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.settings-card h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 27px;
+    margin: 9px 0 30px;
+}
+
+.setting-row {
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+}
+
+.setting-row small,
+.setting-row strong {
+    display: block;
+}
+
+.setting-row small {
+    color: #666d7d;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.setting-row strong {
+    color: #d1d3da;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.security {
+    background:
+        radial-gradient(circle at 80% 20%, rgba(216,179,106,.09), transparent 40%),
+        linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.012));
+}
+
+.logout-btn {
+    display: block;
+    margin-top: 25px;
+    padding: 13px;
+
+    border: 1px solid rgba(216,179,106,.22);
+    border-radius: 10px;
+
+    color: var(--gold-light);
+    font-size: 11px;
+
+    text-align: center;
+
+    transition: .25s;
+}
+
+.logout-btn:hover {
+    background: rgba(216,179,106,.08);
+}
+
+.footer-note {
+    margin-top: 45px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+
+    color: #5e6474;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+@media(max-width:950px) {
+
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:800px) {
+
+    .sidebar {
+        width: 70px;
+        padding: 20px 8px;
+    }
+
+    .brand div,
+    nav a,
+    .bottom a {
+        font-size: 0;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+}

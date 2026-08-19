@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Stay | Reports</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='reports.css') }}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <span>RS</span>
+
+            <div>
+                <strong>ROYAL STAY</strong>
+                <small>MANAGEMENT</small>
+            </div>
+        </div>
+
+        <nav>
+
+            <a href="{{ url_for('dashboard') }}">⌂ Dashboard</a>
+            <a href="{{ url_for('rooms') }}">▣ Rooms</a>
+            <a href="{{ url_for('booking') }}">◇ Bookings</a>
+            <a href="{{ url_for('guests') }}">♙ Guests</a>
+            <a href="{{ url_for('payments') }}">◈ Payments</a>
+            <a href="{{ url_for('staff') }}">♧ Staff</a>
+
+        </nav>
+
+        <div class="bottom">
+
+            <a href="{{ url_for('reports') }}" class="active">
+                ◫ Reports
+            </a>
+
+            <a href="{{ url_for('settings') }}">
+                ⚙ Settings
+            </a>
+
+            <a href="{{ url_for('logout') }}">
+                ↪ Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <main>
+
+        <header class="header">
+
+            <div>
+                <span>ANALYTICS CENTER</span>
+                <h1>Reports</h1>
+                <p>Live statistics calculated from your database.</p>
+            </div>
+
+            <div class="report-mark">
+                RS
+            </div>
+
+        </header>
+
+
+        <section class="report-grid">
+
+            <article class="report-card">
+
+                <span>TOTAL ROOMS</span>
+
+                <strong>
+                    {{ report.total_rooms }}
+                </strong>
+
+                <small>
+                    Complete room inventory
+                </small>
+
+            </article>
+
+
+            <article class="report-card available">
+
+                <span>AVAILABLE</span>
+
+                <strong>
+                    {{ report.available_rooms }}
+                </strong>
+
+                <small>
+                    Currently available
+                </small>
+
+            </article>
+
+
+            <article class="report-card occupied">
+
+                <span>OCCUPIED</span>
+
+                <strong>
+                    {{ report.occupied_rooms }}
+                </strong>
+
+                <small>
+                    Currently occupied
+                </small>
+
+            </article>
+
+
+            <article class="report-card">
+
+                <span>GUESTS</span>
+
+                <strong>
+                    {{ report.total_guests }}
+                </strong>
+
+                <small>
+                    Registered guests
+                </small>
+
+            </article>
+
+
+            <article class="report-card">
+
+                <span>BOOKINGS</span>
+
+                <strong>
+                    {{ report.total_bookings }}
+                </strong>
+
+                <small>
+                    Reservation records
+                </small>
+
+            </article>
+
+
+            <article class="report-card revenue">
+
+                <span>REVENUE</span>
+
+                <strong>
+                    ₹{{ report.total_revenue }}
+                </strong>
+
+                <small>
+                    Paid payment records
+                </small>
+
+            </article>
+
+        </section>
+
+
+        <section class="summary">
+
+            <span>ROYAL STAY / PERFORMANCE</span>
+
+            <h2>
+                Hotel operations,
+                <em>in numbers.</em>
+            </h2>
+
+            <p>
+                The figures above are generated directly from
+                the current database records.
+            </p>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

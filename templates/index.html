@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Stay | Hotel Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <a href="{{ url_for('index') }}"
+           class="brand">
+
+            <span class="brand-mark">R</span>
+
+            <span class="brand-text">
+                ROYAL <b>STAY</b>
+            </span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+            <a href="{{ url_for('login') }}"
+               class="nav-login">
+
+                Admin / Guest Login
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-overlay"></div>
+
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+
+                    ✦ PREMIUM HOTEL MANAGEMENT
+
+                </div>
+
+
+                <h1>
+
+                    Where hospitality
+                    <span>meets simplicity.</span>
+
+                </h1>
+
+
+                <p>
+
+                    Royal Stay is a modern hotel management
+                    system designed to bring rooms, guests,
+                    reservations, payments and staff together
+                    in one elegant platform.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="{{ url_for('login') }}"
+                       class="primary-btn">
+
+                        Enter Portal
+                        <span>→</span>
+
+                    </a>
+
+
+                    <a href="#services"
+                       class="secondary-btn">
+
+                        Explore System
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- VISUAL PANEL -->
+
+            <div class="hero-card">
+
+                <div class="card-glow"></div>
+
+
+                <div class="mini-header">
+
+                    <span class="mini-logo">
+                        R
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            ROYAL STAY
+                        </strong>
+
+                        <small>
+                            MANAGEMENT PORTAL
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-line"></div>
+
+
+                <div class="mini-stats">
+
+                    <div>
+                        <span>ROOMS</span>
+                        <strong>∞</strong>
+                    </div>
+
+                    <div>
+                        <span>GUESTS</span>
+                        <strong>∞</strong>
+                    </div>
+
+                    <div>
+                        <span>BOOKINGS</span>
+                        <strong>∞</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="visual-chart">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+
+        <section class="services"
+                 id="services">
+
+            <div class="section-heading">
+
+                <span>
+                    THE ROYAL STAY EXPERIENCE
+                </span>
+
+                <h2>
+                    Everything your hotel
+                    <em>needs.</em>
+                </h2>
+
+            </div>
+
+
+            <div class="service-grid">
+
+
+                <article class="service-card">
+
+                    <div class="service-number">
+                        01
+                    </div>
+
+                    <div class="service-icon">
+                        ◇
+                    </div>
+
+                    <h3>
+                        Room Management
+                    </h3>
+
+                    <p>
+                        Monitor room availability,
+                        room types, pricing and status
+                        directly from the management portal.
+                    </p>
+
+                </article>
+
+
+                <article class="service-card">
+
+                    <div class="service-number">
+                        02
+                    </div>
+
+                    <div class="service-icon">
+                        ◌
+                    </div>
+
+                    <h3>
+                        Guest Management
+                    </h3>
+
+                    <p>
+                        Maintain organized guest records
+                        and access important guest details
+                        whenever required.
+                    </p>
+
+                </article>
+
+
+                <article class="service-card">
+
+                    <div class="service-number">
+                        03
+                    </div>
+
+                    <div class="service-icon">
+                        □
+                    </div>
+
+                    <h3>
+                        Reservations
+                    </h3>
+
+                    <p>
+                        Keep track of bookings, check-ins,
+                        check-outs and reservation status
+                        through one centralized system.
+                    </p>
+
+                </article>
+
+
+                <article class="service-card">
+
+                    <div class="service-number">
+                        04
+                    </div>
+
+                    <div class="service-icon">
+                        ◈
+                    </div>
+
+                    <h3>
+                        Payments
+                    </h3>
+
+                    <p>
+                        View payment records, payment
+                        methods, statuses and overall
+                        hotel revenue.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="about"
+                 id="about">
+
+            <div class="about-content">
+
+                <span class="section-label">
+                    ABOUT ROYAL STAY
+                </span>
+
+                <h2>
+                    Designed for
+                    <span>modern hospitality.</span>
+                </h2>
+
+                <p>
+
+                    Royal Stay provides a centralized
+                    environment for hotel administrators
+                    to manage day-to-day operations while
+                    keeping information organized and
+                    accessible.
+
+                </p>
+
+            </div>
+
+
+            <div class="about-highlight">
+
+                <span>
+                    R
+                </span>
+
+                <strong>
+                    ROYAL
+                    <br>
+                    STAY
+                </strong>
+
+                <small>
+                    HOTEL MANAGEMENT SYSTEM
+                </small>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="contact"
+                 id="contact">
+
+            <span class="section-label">
+                READY TO BEGIN?
+            </span>
+
+            <h2>
+                Step into
+                <span>Royal Stay.</span>
+            </h2>
+
+            <a href="{{ url_for('login') }}"
+               class="primary-btn">
+
+                Access Portal
+                <span>→</span>
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-brand">
+
+            <span class="brand-mark">
+                R
+            </span>
+
+            <strong>
+                ROYAL STAY
+            </strong>
+
+        </div>
+
+
+        <p>
+            Hotel Management System
+        </p>
+
+
+        <span class="copyright">
+            © 2026 Royal Stay. Academic Project.
+        </span>
+
+    </footer>
+
+
+</body>
+
+</html>

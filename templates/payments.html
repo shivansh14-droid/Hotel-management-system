@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Stay | Payments</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='payments.css') }}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <span>RS</span>
+
+            <div>
+                <strong>ROYAL STAY</strong>
+                <small>MANAGEMENT</small>
+            </div>
+        </div>
+
+        <nav>
+
+            <a href="{{ url_for('dashboard') }}">⌂ Dashboard</a>
+            <a href="{{ url_for('rooms') }}">▣ Rooms</a>
+            <a href="{{ url_for('booking') }}">◇ Bookings</a>
+            <a href="{{ url_for('guests') }}">♙ Guests</a>
+
+            <a href="{{ url_for('payments') }}" class="active">
+                ◈ Payments
+            </a>
+
+            <a href="{{ url_for('staff') }}">♧ Staff</a>
+
+        </nav>
+
+        <div class="bottom">
+            <a href="{{ url_for('reports') }}">◫ Reports</a>
+            <a href="{{ url_for('settings') }}">⚙ Settings</a>
+            <a href="{{ url_for('logout') }}">↪ Logout</a>
+        </div>
+
+    </aside>
+
+
+    <main>
+
+        <header class="header">
+
+            <div>
+                <span>FINANCIAL RECORDS</span>
+                <h1>Payments</h1>
+                <p>Payment records connected directly to your database.</p>
+            </div>
+
+            <div class="count">
+                {{ payments|length }} RECORDS
+            </div>
+
+        </header>
+
+
+        <section class="panel">
+
+            <div class="panel-head">
+
+                <div>
+                    <span>PAYMENT DIRECTORY</span>
+                    <h2>Transaction history</h2>
+                </div>
+
+            </div>
+
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>BOOKING</th>
+                            <th>GUEST</th>
+                            <th>AMOUNT</th>
+                            <th>METHOD</th>
+                            <th>STATUS</th>
+                            <th>DATE</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                    {% for payment in payments %}
+
+                        <tr>
+
+                            <td class="id">
+                                #{{ payment.payment_id }}
+                            </td>
+
+                            <td>
+                                #{{ payment.booking_id }}
+                            </td>
+
+                            <td class="guest">
+                                {{ payment.first_name }}
+                                {{ payment.last_name }}
+                            </td>
+
+                            <td class="amount">
+                                ₹{{ payment.amount }}
+                            </td>
+
+                            <td>
+                                {{ payment.payment_method }}
+                            </td>
+
+                            <td>
+
+                                <span class="status
+                                    {% if payment.payment_status == 'Paid' %}
+                                        paid
+                                    {% else %}
+                                        other
+                                    {% endif %}
+                                ">
+                                    {{ payment.payment_status }}
+                                </span>
+
+                            </td>
+
+                            <td>
+                                {{ payment.payment_date }}
+                            </td>
+
+                        </tr>
+
+                    {% else %}
+
+                        <tr>
+                            <td colspan="7" class="empty">
+                                No payment records found in the database.
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

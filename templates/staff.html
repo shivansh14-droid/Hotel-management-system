@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Stay | Staff</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='staff.css') }}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <span>RS</span>
+
+            <div>
+                <strong>ROYAL STAY</strong>
+                <small>MANAGEMENT</small>
+            </div>
+        </div>
+
+        <nav>
+
+            <a href="{{ url_for('dashboard') }}">⌂ Dashboard</a>
+            <a href="{{ url_for('rooms') }}">▣ Rooms</a>
+            <a href="{{ url_for('booking') }}">◇ Bookings</a>
+            <a href="{{ url_for('guests') }}">♙ Guests</a>
+            <a href="{{ url_for('payments') }}">◈ Payments</a>
+
+            <a href="{{ url_for('staff') }}" class="active">
+                ♧ Staff
+            </a>
+
+        </nav>
+
+        <div class="bottom">
+            <a href="{{ url_for('reports') }}">◫ Reports</a>
+            <a href="{{ url_for('settings') }}">⚙ Settings</a>
+            <a href="{{ url_for('logout') }}">↪ Logout</a>
+        </div>
+
+    </aside>
+
+
+    <main>
+
+        <header class="header">
+
+            <div>
+                <span>TEAM MANAGEMENT</span>
+                <h1>Staff</h1>
+                <p>Hotel staff records from your database.</p>
+            </div>
+
+            <div class="count">
+                {{ staff|length }} RECORDS
+            </div>
+
+        </header>
+
+
+        <section class="panel">
+
+            <div class="panel-head">
+
+                <div>
+                    <span>STAFF DIRECTORY</span>
+                    <h2>Team members</h2>
+                </div>
+
+            </div>
+
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>EMAIL</th>
+                            <th>PHONE</th>
+                            <th>POSITION</th>
+                            <th>SALARY</th>
+                            <th>JOINING DATE</th>
+                            <th>STATUS</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                    {% for member in staff %}
+
+                        <tr>
+
+                            <td class="id">
+                                #{{ member.staff_id }}
+                            </td>
+
+                            <td class="name">
+                                {{ member.first_name }}
+                                {{ member.last_name }}
+                            </td>
+
+                            <td>
+                                {{ member.email if member.email else '—' }}
+                            </td>
+
+                            <td>
+                                {{ member.phone if member.phone else '—' }}
+                            </td>
+
+                            <td>
+                                {{ member.position }}
+                            </td>
+
+                            <td class="salary">
+                                {% if member.salary is not none %}
+                                    ₹{{ member.salary }}
+                                {% else %}
+                                    —
+                                {% endif %}
+                            </td>
+
+                            <td>
+                                {{ member.joining_date if member.joining_date else '—' }}
+                            </td>
+
+                            <td>
+                                <span class="status">
+                                    {{ member.status }}
+                                </span>
+                            </td>
+
+                        </tr>
+
+                    {% else %}
+
+                        <tr>
+                            <td colspan="8" class="empty">
+                                No staff records found in the database.
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

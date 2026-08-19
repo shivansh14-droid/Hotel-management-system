@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #080b14;
+    --side: #0a0e18;
+    --card: rgba(18,23,36,.75);
+    --border: rgba(255,255,255,.075);
+    --gold: #d8b36a;
+    --gold-light: #f0d49b;
+    --text: #f4f2ec;
+    --muted: #858c9e;
+}
+
+body {
+    background:
+        radial-gradient(circle at 80% 10%, rgba(105,75,210,.12), transparent 30%),
+        var(--bg);
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.layout {
+    min-height: 100vh;
+    display: flex;
+}
+
+.sidebar {
+    width: 235px;
+    padding: 28px 16px;
+    background: var(--side);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 10px 38px;
+}
+
+.brand > span {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(216,179,106,.4);
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-light);
+    font-size: 11px;
+}
+
+.brand strong,
+.brand small {
+    display: block;
+}
+
+.brand strong {
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.brand small {
+    color: var(--muted);
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+nav a,
+.bottom a {
+    display: block;
+    padding: 12px;
+    border-radius: 9px;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+nav a:hover,
+.bottom a:hover {
+    background: rgba(255,255,255,.035);
+    color: var(--text);
+}
+
+nav .active {
+    color: var(--gold-light);
+    background: rgba(216,179,106,.1);
+    border-left: 2px solid var(--gold);
+}
+
+.bottom {
+    margin-top: auto;
+}
+
+main {
+    width: 100%;
+    max-width: 1500px;
+    padding: 45px;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 35px;
+}
+
+.header > div:first-child > span,
+.panel-head span {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 2.5px;
+}
+
+.header h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 43px;
+    margin: 8px 0;
+}
+
+.header p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.count {
+    padding: 10px 15px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    color: var(--gold-light);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.panel-head {
+    padding: 25px;
+    border-bottom: 1px solid var(--border);
+}
+
+.panel-head h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    margin-top: 7px;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 950px;
+}
+
+th {
+    padding: 17px;
+    text-align: left;
+    color: #626a7b;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+td {
+    padding: 18px 17px;
+    border-top: 1px solid var(--border);
+    color: #b7bcc7;
+    font-size: 11px;
+}
+
+tr:hover {
+    background: rgba(216,179,106,.025);
+}
+
+.id {
+    color: var(--gold);
+}
+
+.guest {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.amount {
+    color: var(--gold-light);
+    font-weight: 700;
+}
+
+.status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 9px;
+}
+
+.paid {
+    color: #91dcae;
+    background: rgba(90,200,130,.08);
+}
+
+.other {
+    color: #e6a1a1;
+    background: rgba(220,90,90,.08);
+}
+
+.empty {
+    text-align: center;
+    padding: 60px;
+    color: var(--muted);
+}
+
+@media(max-width:800px) {
+
+    .sidebar {
+        width: 70px;
+        padding: 20px 8px;
+    }
+
+    .brand div,
+    nav a,
+    .bottom a {
+        font-size: 0;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+}

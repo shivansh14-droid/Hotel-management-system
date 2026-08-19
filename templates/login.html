@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Stay | Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='login.css') }}">
+
+</head>
+
+
+<body>
+
+    <div class="login-bg"></div>
+
+
+    <main class="login-page">
+
+
+        <!-- =================================================
+             LEFT BRAND SECTION
+        ================================================== -->
+
+        <section class="login-brand">
+
+            <a href="{{ url_for('index') }}"
+               class="brand">
+
+                <span class="brand-mark">
+                    RS
+                </span>
+
+                <span>
+
+                    <strong>
+                        ROYAL STAY
+                    </strong>
+
+                    <small>
+                        HOTEL MANAGEMENT
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <div class="welcome">
+
+                <span class="kicker">
+                    WELCOME
+                </span>
+
+                <h1>
+                    Your stay.
+                    <br>
+                    <em>Your experience.</em>
+                </h1>
+
+                <p>
+                    Sign in to access the Royal Stay
+                    hotel management portal.
+                </p>
+
+            </div>
+
+
+            <div class="login-footer">
+
+                <span>
+                    ROYAL STAY PORTAL
+                </span>
+
+                <span>
+                    RS / 01
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LOGIN SECTION
+        ================================================== -->
+
+        <section class="login-panel">
+
+            <div class="login-box">
+
+
+                <div class="box-heading">
+
+                    <span class="small-label">
+                        SECURE ACCESS
+                    </span>
+
+                    <h2>
+                        Sign In
+                    </h2>
+
+                    <p>
+                        Enter your credentials to continue.
+                    </p>
+
+                </div>
+
+
+                <!-- ERROR MESSAGE -->
+
+                {% if error %}
+
+                <div class="error-message">
+
+                    {{ error }}
+
+                </div>
+
+                {% endif %}
+
+
+
+                <!-- LOGIN FORM -->
+
+                <form method="POST">
+
+
+                    <div class="input-group">
+
+                        <label for="username">
+                            Username
+                        </label>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter username"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="input-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="login-submit">
+
+                        Sign In
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- =================================================
+                     DEMO CREDENTIALS
+                ================================================== -->
+
+                <div class="demo-login">
+
+                    <div class="demo-heading">
+
+                        <span>
+                            PROJECT DEMONSTRATION
+                        </span>
+
+                    </div>
+
+
+                    <div class="demo-account">
+
+                        <div class="account-role">
+                            ADMIN
+                        </div>
+
+                        <div class="account-details">
+
+                            <p>
+                                <strong>Username:</strong>
+                                admin
+                            </p>
+
+                            <p>
+                                <strong>Password:</strong>
+                                admin123
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="demo-account">
+
+                        <div class="account-role guest-role">
+                            GUEST
+                        </div>
+
+                        <div class="account-details">
+
+                            <p>
+                                <strong>Username:</strong>
+                                guest
+                            </p>
+
+                            <p>
+                                <strong>Password:</strong>
+                                guest123
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BACK TO HOME -->
+
+                <a href="{{ url_for('index') }}"
+                   class="back-home">
+
+                    ← Return to Royal Stay
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+</body>
+
+</html>

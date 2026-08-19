@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Stay | Guest Portal</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='guest_home.css') }}">
+
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="brand">
+
+            <span class="brand-mark">
+                RS
+            </span>
+
+            <div>
+                <strong>ROYAL STAY</strong>
+                <small>GUEST PORTAL</small>
+            </div>
+
+        </div>
+
+
+        <a href="{{ url_for('logout') }}"
+           class="logout-btn">
+
+            Logout
+
+        </a>
+
+    </header>
+
+
+    <main class="guest-main">
+
+        <section class="welcome-section">
+
+            <span class="kicker">
+                ROYAL STAY GUEST PORTAL
+            </span>
+
+            <h1>
+                Welcome to
+                <em>Royal Stay.</em>
+            </h1>
+
+            <p>
+                Your guest portal is ready.
+                Manage your stay and view your
+                reservation information from one place.
+            </p>
+
+        </section>
+
+
+        <section class="guest-grid">
+
+            <div class="guest-card">
+
+                <span class="card-number">
+                    01
+                </span>
+
+                <h2>
+                    My Reservation
+                </h2>
+
+                <p>
+                    View your booking and reservation
+                    details.
+                </p>
+
+            </div>
+
+
+            <div class="guest-card">
+
+                <span class="card-number">
+                    02
+                </span>
+
+                <h2>
+                    Stay Details
+                </h2>
+
+                <p>
+                    Check your room and stay information.
+                </p>
+
+            </div>
+
+
+            <div class="guest-card">
+
+                <span class="card-number">
+                    03
+                </span>
+
+                <h2>
+                    Payment Details
+                </h2>
+
+                <p>
+                    View payment information related
+                    to your reservation.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
